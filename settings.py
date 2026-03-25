@@ -1,13 +1,18 @@
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
+import os
+
+ALLOWED_HOSTS = ['*']
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Whitenoise
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     ...
-    'users',
-    'events',
-    'registrations',
 ]
 
-AUTH_USER_MODEL = 'users.User'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
