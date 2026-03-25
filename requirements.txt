@@ -1,0 +1,7 @@
+django
+gunicorn
+whitenoise
+qrcode
+pillow
+reportlab
+psycopg2-binary
